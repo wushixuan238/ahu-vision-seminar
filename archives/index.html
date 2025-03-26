@@ -1,0 +1,54 @@
+---
+layout: default
+title: 报告归档
+---
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <header class="page-header">
+        <h1 class="page-title">报告归档</h1>
+        <p class="lead">按时间顺序浏览所有研讨班报告</p>
+      </header>
+      
+      <div class="archives">
+        {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+        {% for year in postsByYear %}
+          <h2 class="archive-year">{{ year.name }} 年</h2>
+          <ul class="list-unstyled">
+            {% for post in year.items %}
+              <li class="archive-item">
+                <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.paper_url }}" class="post-link">{{ post.title }}</a>
+                {% if post.author %}<span class="post-author"> - {{ post.author }}</span>{% endif %}
+                {% if post.category %}<span class="post-category badge badge-secondary">{{ post.category }}</span>{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </div>
+      
+      <div class="category-section mt-5">
+        <h2>按类别浏览</h2>
+        {% assign categories = site.posts | map: "category" | compact | uniq | sort %}
+        <div class="row">
+          {% for category in categories %}
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{ category }}</h5>
+                  <p class="card-text">
+                    {% assign cat_posts = site.posts | where: "category", category %}
+                    共 {{ cat_posts.size }} 篇报告
+                  </p>
+                  <a href="{{ site.baseurl }}/category/{{ category | strip | slugify }}/" class="btn btn-outline-primary">查看详情</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+---
+layout: default
+title: 按类别浏览
+permalink: /category/
+---
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <header class="page-header">
+        <h1 class="page-title">按类别浏览</h1>
+        <p class="lead">选择下面的类别查看相关报告</p>
+      </header>
+      
+      <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        {% assign categories = site.posts | map: "category" | uniq %}
+        {% for category in categories %}
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ category }}</h5>
+                <p class="card-text">
+                  {% assign cat_posts = site.posts | where: "category", category %}
+                  共 {{ cat_posts.size }} 篇报告
+                </p>
+                <a href="{{ site.baseurl }}/category/{{ category | strip | slugify }}/" class="btn btn-outline-primary">查看详情</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

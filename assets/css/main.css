@@ -1,0 +1,185 @@
+/* 主要样式文件 */
+
+/* 全局样式 */
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 首页大横幅 */
+.jumbotron {
+  background-color: #3498db;
+  color: white;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 文章列表样式 */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-list h3 {
+  margin-top: 0;
+}
+
+.post-meta {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.post-link {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.post-link:hover {
+  color: #3498db;
+  text-decoration: none;
+}
+
+/* 文章内容页面 */
+
+/* 按类别浏览样式 */
+.category-block {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.category-title {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.category-posts {
+  margin-bottom: 1rem;
+}
+
+.category-posts li {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #e9ecef;
+}
+
+.category-posts li:last-child {
+  border-bottom: none;
+}
+
+.category-posts a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.category-posts a:hover {
+  color: #3498db;
+}
+
+.category-count {
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* 归档页面样式 */
+.archive-year {
+  color: #2c3e50;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.archive-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.archive-item:last-child {
+  border-bottom: none;
+}
+
+.post-category {
+  background-color: #3498db;
+  margin-left: 0.5rem;
+  font-weight: normal;
+}
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  margin-bottom: 0.5rem;
+}
+
+.post-content {
+  margin-bottom: 2rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 归档页面 */
+.archive-year {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.archive-item {
+  margin-bottom: 1rem;
+}
+
+/* 页脚 */
+.footer {
+  border-top: 1px solid #e9ecef;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+/* 媒体查询适配 */
+@media (max-width: 768px) {
+  .jumbotron {
+    padding: 2rem 1rem;
+  }
+}
+
+/* 资源卡片 */
+.resource-card {
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}

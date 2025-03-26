@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <header class="page-header">
+        <h1 class="page-title">{{ page.title }}</h1>
+        <p class="lead">该类别下的所有报告</p>
+      </header>
+      
+      <ul class="post-list">
+        {% assign cat_posts = site.posts | where: "category", page.category_name %}
+        {% for post in cat_posts %}
+          <li>
+            <h3>
+              <a class="post-link" href="{{ post.paper_url }}">{{ post.title }}</a>
+            </h3>
+            <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }} | 报告人：{{ post.author }}</span>
+            <p>{{ post.excerpt }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+      
+      <p><a href="{{ site.baseurl }}/archives/" class="btn btn-outline-secondary">&larr; 返回归档</a></p>
+    </div>
+  </div>
+</div>

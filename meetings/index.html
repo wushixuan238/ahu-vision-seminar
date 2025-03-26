@@ -1,0 +1,105 @@
+---
+layout: default
+title: 小组会
+---
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <header class="page-header">
+        <h1 class="page-title">小组会安排</h1>
+        <p class="lead">本页面记录了我们研讨班的小组会安排和论文讨论记录</p>
+      </header>
+      
+      <div class="meetings-content mt-5">
+        <!-- 小组会介绍 -->
+        <div class="meeting-intro mb-5">
+          <p>每周四下午2:00-4:00，地点：安徽大学计算机科学与技术学院会议室</p>
+          <div class="alert alert-info">
+            <h5>小组会制度:</h5>
+            <ol>
+              <li><strong>报告安排</strong>：每周安排4位同学进行论文分享和研究进展汇报</li>
+              <li><strong>论文选择</strong>：优先选择近期发表于顶级会议/期刊的论文，与小组研究方向相关</li>
+              <li><strong>报告准备</strong>：
+                <ul>
+                  <li>精读论文，理解核心思想和创新点</li>
+                  <li>准备25-30分钟的演讲幻灯片</li>
+                  <li>可以适当补充相关工作的背景知识</li>
+                  <li>建议对论文方法进行复现或尝试改进</li>
+                </ul>
+              </li>
+              <li><strong>讨论环节</strong>：报告后留出15-20分钟的讨论时间，鼓励大家积极参与讨论</li>
+              <li><strong>资料分享</strong>：报告后请将论文、幻灯片和笔记上传至本网站，方便大家查阅</li>
+            </ol>
+          </div>
+        </div>
+        
+        <!-- 包含会议数据文件 -->
+        {% include meeting-data.html %}
+        
+        <!-- 2025年春季学期会议 -->
+        <div class="meeting-semester mb-5">
+          <h2>2025年春季学期</h2>
+          <div class="meeting-list">
+            {% for meeting in spring_2025_meetings %}
+              <div class="card mb-4">
+                <div class="card-header" style="background-color: #e3f2fd; color: #333;">
+                  <h4 class="mb-0">{{ meeting[1] }}</h4>
+                </div>
+                <div class="card-body">
+                  {% for presentation in meeting[2] %}
+                    <div class="presentation mb-4 {% unless forloop.last %}border-bottom pb-4{% endunless %}">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>{{ presentation[0] }}</h4>
+                          <p>
+                            <strong>报告人</strong>: {{ presentation[1] }} &nbsp;&nbsp;|&nbsp;&nbsp; 
+                            <strong>发表会议</strong>: {{ presentation[2] }} &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="{{ presentation[3] }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-pdf"></i> 论文</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- 2024年秋季学期会议 -->
+        <div class="meeting-semester mb-5">
+          <h2>2024年秋季学期</h2>
+          <div class="meeting-list">
+            {% for meeting in fall_2024_meetings %}
+              <div class="card mb-4">
+                <div class="card-header" style="background-color: #e8f5e9; color: #333;">
+                  <h4 class="mb-0">{{ meeting[1] }}</h4>
+                </div>
+                <div class="card-body">
+                  {% for presentation in meeting[2] %}
+                    <div class="presentation mb-4 {% unless forloop.last %}border-bottom pb-4{% endunless %}">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>{{ presentation[0] }}</h4>
+                          <p>
+                            <strong>报告人</strong>: {{ presentation[1] }} &nbsp;&nbsp;|&nbsp;&nbsp; 
+                            <strong>发表会议</strong>: {{ presentation[2] }} &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="{{ presentation[3] }}" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-pdf"></i> 论文</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 添加Font Awesome图标支持 -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
